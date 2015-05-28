@@ -6,14 +6,16 @@ Java 1.7
 Maven 3
 
 ## Installation (install commands)
-git clone kafka-monitoring-tool
+git clone https://github.com/Symantec/kafka-monitoring-tool.git
 
-mvn packaage
+cd kafka-monitoring-tool
 
-You will have the kafka-monitoring-0.1.0.jar created in the “target” directory. 
+mvn package
+
+You will have the kafka-monitoring-tool-0.0.1.jar created in the “target” directory. 
 
 ## Running project
-java -jar kafka-monitoring-0.1.jar server
+java -jar target/kafka-monitoring-tool-0.0.1.jar server
 
 By default the application assumes the zookeeper is running localhost on port 2181. If you need to provide a zookeeper host, pass it as a jvm parameter like this:
 
@@ -25,7 +27,7 @@ curl -X GET http://localhost:8080/kafka/offset
 ## Configuration (config commands)
 The application can also be passed a yml file as a configuration file, instead of passing the zookeeper urls on the command line. Default.yml file is available in the project. The way you start the project with yml file is like this:
 
-java -jar kafka-monitoring-0.1.0.jar server default.yml
+java -jar kafka-monitoring-tool-0.0.1.jar server default.yml
 
 ### API parameters
 There are few Query Params you can pass to the API to get specific results. Examples are:
@@ -48,10 +50,10 @@ If you would like to push the stats to a StatsD server, you can configure the se
 java  -Ddw.zookeeperUrls=ZKHOST:ZKPORT,ZKHOST:ZKPORT,ZKHOST:PORT -Ddw.pushToStatsD=true -jar kafka-monitoring-0.1.0.jar server
 
 By default the metrics are collected and pushed every 60 seconds. If you want to change the frequency, set this property:
-java  -Ddw.zookeeperUrls=ZKHOST:ZKPORT,ZKHOST:ZKPORT,ZKHOST:PORT -Ddw.pushToStatsD=true —Ddw.refreshSeconds=60 -jar kafka-monitoring-0.1.0.jar server
+java  -Ddw.zookeeperUrls=ZKHOST:ZKPORT,ZKHOST:ZKPORT,ZKHOST:PORT -Ddw.pushToStatsD=true —Ddw.refreshSeconds=60 -jar kafka-monitoring-tool-0.0.1.jar server
 
 To push metrics to statsd server listening on a different host on a different port, set the following parameters:
-java  -Ddw.zookeeperUrls=ZKHOST:ZKPORT,ZKHOST:ZKPORT,ZKHOST:PORT -Ddw.pushToStatsD=true —Ddw.refreshSeconds=60 -Ddw.statsDHost=locahost —Ddw.statsDPort=8125 -Ddw.statsDPrefix=kafka-monitor -jar kafka-monitoring-0.1.0.jar server
+java  -Ddw.zookeeperUrls=ZKHOST:ZKPORT,ZKHOST:ZKPORT,ZKHOST:PORT -Ddw.pushToStatsD=true —Ddw.refreshSeconds=60 -Ddw.statsDHost=locahost —Ddw.statsDPort=8125 -Ddw.statsDPrefix=kafka-monitor -jar kafka-monitoring-tool-0.0.1.jar server
 
 You can also configure all these properties in a yml config file and pass in the config file to the app, like
-java -jar kafka-monitoring-0.1.0.jar server default.yml
+java -jar kafka-monitoring-tool-0.0.1.jar server default.yml
