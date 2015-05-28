@@ -19,7 +19,7 @@ java -jar target/kafka-monitoring-tool-0.0.1.jar server
 
 By default the application assumes the zookeeper is running localhost on port 2181. If you need to provide a zookeeper host, pass it as a jvm parameter like this:
 
-java -Ddw.zookeeperUrls=ZKHOST:ZKPORT,ZKHOST:ZKPORT,ZKHOST:PORT -jar kafka-monitoring-0.1.0.jar server
+java -Ddw.zookeeperUrls=ZKHOST:ZKPORT,ZKHOST:ZKPORT,ZKHOST:PORT -jar kafka-monitoring-tool-0.0.1.jar server
 
 Once the server is up, run the following command from localhost to get the information in a json format.
 curl -X GET http://localhost:8080/kafka/offset
