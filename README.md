@@ -7,6 +7,7 @@ Maven 3
 
 ## Installation (install commands)
 git clone kafka-monitoring-tool
+
 mvn packaage
 
 You will have the kafka-monitoring-0.1.0.jar created in the “target” directory. 
@@ -42,7 +43,7 @@ http://localhost:8080/kafka/offset?consumerType=spout
 
 ### PushToStatsD
 
-To automatically push the metrics to StatsD, enable the the pushToStatsD property. By default the application assumes the statsD is listening on the localhost at port 8125. 
+If you would like to push the stats to a StatsD server, you can configure the service to do so. You just need to enable the the pushToStatsD property. By default the application assumes the statsD is listening on the localhost at port 8125. 
 
 java  -Ddw.zookeeperUrls=ZKHOST:ZKPORT,ZKHOST:ZKPORT,ZKHOST:PORT -Ddw.pushToStatsD=true -jar kafka-monitoring-0.1.0.jar server
 
